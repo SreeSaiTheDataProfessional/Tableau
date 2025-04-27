@@ -1,0 +1,1731 @@
+<?xml version='1.0' encoding='utf-8' ?>
+
+<!-- build 20251.25.0313.2002                               -->
+<workbook original-version='18.1' source-build='2025.1.0 (20251.25.0313.2002)' source-platform='mac' version='18.1' xmlns:user='http://www.tableausoftware.com/xml/user'>
+  <document-format-change-manifest>
+    <AnimationOnByDefault />
+    <MarkAnimation />
+    <ObjectModelEncapsulateLegacy />
+    <ObjectModelExtractV2 />
+    <ObjectModelTableType />
+    <SchemaViewerObjectModel />
+    <SheetIdentifierTracking />
+    <_.fcp.VConnDownstreamExtractsWithWarnings.true...VConnDownstreamExtractsWithWarnings />
+    <WindowsPersistSimpleIdentifiers />
+  </document-format-change-manifest>
+  <preferences>
+    <preference name='ui.encoding.shelf.height' value='24' />
+    <preference name='ui.shelf.height' value='26' />
+  </preferences>
+  <datasources>
+    <datasource caption='PayPal Payments.csv (Multiple Connections)' inline='true' name='federated.0odawbj1b0cvuw13ozzqv11ix1yq' version='18.1'>
+      <connection class='federated'>
+        <named-connections>
+          <named-connection caption='Products' name='textscan.17i6zz40gyx9901grzmt01b4x60u'>
+            <connection class='textclean' cleaning='yes' compat='no' csvFile='/Users/sreesaiadusumilli/Desktop/Tableau/Tableau/Products.csv' dataRefreshTime='' directory='/Users/sreesaiadusumilli/Desktop/Tableau/Tableau' filename='/var/folders/kz/sl9mx18514v_w9y101m4sxnc0000gn/T/tableau-temp/1w2bn7j12oxj4c1egdrb81b7s249/Products.csv.xlsx' interpretationMode='8' password='' server='' validate='no' />
+          </named-connection>
+          <named-connection caption='Currency Conversion' name='excel-direct.0w9hg1v0zf20oz1eu115z1v94k9r'>
+            <connection class='excel-direct' cleaning='yes' compat='no' dataRefreshTime='' filename='/Users/sreesaiadusumilli/Desktop/Tableau/Tableau/Currency Conversion.xlsx' interpretationMode='1' password='' server='' validate='no' />
+          </named-connection>
+        </named-connections>
+        <relation join='inner' type='join'>
+          <clause type='join'>
+            <expression op='='>
+              <expression op='[PayPal Payments.csv].[product_id (metadata)]' />
+              <expression op='[Products.csv].[id]' />
+            </expression>
+          </clause>
+          <relation join='left' type='join'>
+            <clause type='join'>
+              <expression op='='>
+                <expression op='[PayPal Payments.csv].[Currency]' />
+                <expression op='[Sheet1].[Currency]' />
+              </expression>
+            </clause>
+            <relation connection='textscan.17i6zz40gyx9901grzmt01b4x60u' name='PayPal Payments.csv' table='[PayPal Payments#csv$]' type='table'>
+              <columns character-set='UTF-8' gridOrigin='A1:S2675:no:A1:S2675:1' header='yes' locale='en_US' separator=','>
+                <column datatype='string' name='id' ordinal='0' />
+                <column datatype='datetime' name='Created date (UTC)' ordinal='1' />
+                <column datatype='real' name='Amount' ordinal='2' />
+                <column datatype='real' name='Amount Refunded' ordinal='3' />
+                <column datatype='string' name='Currency' ordinal='4' />
+                <column datatype='boolean' name='Captured' ordinal='5' />
+                <column datatype='real' name='Converted Amount' ordinal='6' />
+                <column datatype='real' name='Converted Amount Refunded' ordinal='7' />
+                <column datatype='string' name='Converted Currency' ordinal='8' />
+                <column datatype='string' name='Description' ordinal='9' />
+                <column datatype='real' name='Fee' ordinal='10' />
+                <column datatype='string' name='Status' ordinal='11' />
+                <column datatype='string' name='Seller Message' ordinal='12' />
+                <column datatype='string' name='Card ID' ordinal='13' />
+                <column datatype='string' name='Customer ID' ordinal='14' />
+                <column datatype='string' name='Invoice ID' ordinal='15' />
+                <column datatype='string' name='Transfer' ordinal='16' />
+                <column datatype='string' name='price_id (metadata)' ordinal='17' />
+                <column datatype='string' name='product_id (metadata)' ordinal='18' />
+              </columns>
+            </relation>
+            <relation connection='excel-direct.0w9hg1v0zf20oz1eu115z1v94k9r' name='Sheet1' table='[Sheet1$]' type='table'>
+              <columns gridOrigin='A1:B20:no:A1:B20:1' lost='0' outcome='1' processed='19'>
+                <column datatype='string' name='Currency' ordinal='0' />
+                <column datatype='real' name='USD Conversion' ordinal='1' />
+              </columns>
+            </relation>
+          </relation>
+          <relation connection='textscan.17i6zz40gyx9901grzmt01b4x60u' name='Products.csv' table='[Products#csv$]' type='table'>
+            <columns gridOrigin='A1:D12:no:A1:D12:1'>
+              <column datatype='string' name='id' ordinal='0' />
+              <column datatype='string' name='Name' ordinal='1' />
+              <column datatype='datetime' name='Date (UTC)' ordinal='2' />
+              <column datatype='string' name='Tax Code' ordinal='3' />
+            </columns>
+          </relation>
+        </relation>
+        <cols>
+          <map key='[Amount Refunded]' value='[PayPal Payments.csv].[Amount Refunded]' />
+          <map key='[Amount]' value='[PayPal Payments.csv].[Amount]' />
+          <map key='[Captured]' value='[PayPal Payments.csv].[Captured]' />
+          <map key='[Card ID]' value='[PayPal Payments.csv].[Card ID]' />
+          <map key='[Converted Amount Refunded]' value='[PayPal Payments.csv].[Converted Amount Refunded]' />
+          <map key='[Converted Amount]' value='[PayPal Payments.csv].[Converted Amount]' />
+          <map key='[Converted Currency]' value='[PayPal Payments.csv].[Converted Currency]' />
+          <map key='[Created date (UTC)]' value='[PayPal Payments.csv].[Created date (UTC)]' />
+          <map key='[Currency (Sheet1)]' value='[Sheet1].[Currency]' />
+          <map key='[Currency]' value='[PayPal Payments.csv].[Currency]' />
+          <map key='[Customer ID]' value='[PayPal Payments.csv].[Customer ID]' />
+          <map key='[Date (UTC)]' value='[Products.csv].[Date (UTC)]' />
+          <map key='[Description]' value='[PayPal Payments.csv].[Description]' />
+          <map key='[Fee]' value='[PayPal Payments.csv].[Fee]' />
+          <map key='[Invoice ID]' value='[PayPal Payments.csv].[Invoice ID]' />
+          <map key='[Name]' value='[Products.csv].[Name]' />
+          <map key='[Seller Message]' value='[PayPal Payments.csv].[Seller Message]' />
+          <map key='[Status]' value='[PayPal Payments.csv].[Status]' />
+          <map key='[Tax Code]' value='[Products.csv].[Tax Code]' />
+          <map key='[Transfer]' value='[PayPal Payments.csv].[Transfer]' />
+          <map key='[USD Conversion]' value='[Sheet1].[USD Conversion]' />
+          <map key='[id (Products.csv)]' value='[Products.csv].[id]' />
+          <map key='[id]' value='[PayPal Payments.csv].[id]' />
+          <map key='[price_id (metadata)]' value='[PayPal Payments.csv].[price_id (metadata)]' />
+          <map key='[product_id (metadata)]' value='[PayPal Payments.csv].[product_id (metadata)]' />
+        </cols>
+        <metadata-records>
+          <metadata-record class='capability'>
+            <remote-name />
+            <remote-type>0</remote-type>
+            <parent-name>[PayPal Payments.csv]</parent-name>
+            <remote-alias />
+            <aggregation>Count</aggregation>
+            <contains-null>true</contains-null>
+            <attributes>
+              <attribute datatype='integer' name='context'>0</attribute>
+              <attribute datatype='string' name='gridOrigin'>&quot;A1:S2675:no:A1:S2675:1&quot;</attribute>
+              <attribute datatype='integer' name='lost'>0</attribute>
+              <attribute datatype='integer' name='outcome'>1</attribute>
+              <attribute datatype='integer' name='processed'>15916</attribute>
+            </attributes>
+          </metadata-record>
+          <metadata-record class='capability'>
+            <remote-name />
+            <remote-type>0</remote-type>
+            <parent-name>[Sheet1]</parent-name>
+            <remote-alias />
+            <aggregation>Count</aggregation>
+            <contains-null>true</contains-null>
+            <attributes>
+              <attribute datatype='integer' name='context'>0</attribute>
+              <attribute datatype='string' name='gridOrigin'>&quot;A1:B20:no:A1:B20:1&quot;</attribute>
+              <attribute datatype='integer' name='lost'>0</attribute>
+              <attribute datatype='integer' name='outcome'>1</attribute>
+              <attribute datatype='integer' name='processed'>19</attribute>
+            </attributes>
+          </metadata-record>
+          <metadata-record class='capability'>
+            <remote-name />
+            <remote-type>0</remote-type>
+            <parent-name>[Products.csv]</parent-name>
+            <remote-alias />
+            <aggregation>Count</aggregation>
+            <contains-null>true</contains-null>
+            <attributes>
+              <attribute datatype='integer' name='context'>0</attribute>
+              <attribute datatype='string' name='gridOrigin'>&quot;A1:D12:no:A1:D12:1&quot;</attribute>
+              <attribute datatype='integer' name='lost'>0</attribute>
+              <attribute datatype='integer' name='outcome'>1</attribute>
+              <attribute datatype='integer' name='processed'>11</attribute>
+            </attributes>
+          </metadata-record>
+          <metadata-record class='column'>
+            <remote-name>id</remote-name>
+            <remote-type>130</remote-type>
+            <local-name>[id]</local-name>
+            <parent-name>[PayPal Payments.csv]</parent-name>
+            <remote-alias>id</remote-alias>
+            <ordinal>0</ordinal>
+            <local-type>string</local-type>
+            <aggregation>Count</aggregation>
+            <contains-null>true</contains-null>
+            <collation flag='1' name='LEN_RUS_S2' />
+            <attributes>
+              <attribute datatype='string' name='DebugRemoteType'>&quot;WSTR&quot;</attribute>
+            </attributes>
+            <object-id>[PayPal Payments.csv_36AB8EDCF49A4677AE9A12997BE38A0C]</object-id>
+          </metadata-record>
+          <metadata-record class='column'>
+            <remote-name>Created date (UTC)</remote-name>
+            <remote-type>7</remote-type>
+            <local-name>[Created date (UTC)]</local-name>
+            <parent-name>[PayPal Payments.csv]</parent-name>
+            <remote-alias>Created date (UTC)</remote-alias>
+            <ordinal>1</ordinal>
+            <local-type>datetime</local-type>
+            <aggregation>Year</aggregation>
+            <contains-null>true</contains-null>
+            <attributes>
+              <attribute datatype='string' name='DebugRemoteType'>&quot;DATE&quot;</attribute>
+            </attributes>
+            <object-id>[PayPal Payments.csv_36AB8EDCF49A4677AE9A12997BE38A0C]</object-id>
+          </metadata-record>
+          <metadata-record class='column'>
+            <remote-name>Amount</remote-name>
+            <remote-type>5</remote-type>
+            <local-name>[Amount]</local-name>
+            <parent-name>[PayPal Payments.csv]</parent-name>
+            <remote-alias>Amount</remote-alias>
+            <ordinal>2</ordinal>
+            <local-type>real</local-type>
+            <aggregation>Sum</aggregation>
+            <precision>15</precision>
+            <contains-null>true</contains-null>
+            <attributes>
+              <attribute datatype='string' name='DebugRemoteType'>&quot;R8&quot;</attribute>
+            </attributes>
+            <object-id>[PayPal Payments.csv_36AB8EDCF49A4677AE9A12997BE38A0C]</object-id>
+          </metadata-record>
+          <metadata-record class='column'>
+            <remote-name>Amount Refunded</remote-name>
+            <remote-type>5</remote-type>
+            <local-name>[Amount Refunded]</local-name>
+            <parent-name>[PayPal Payments.csv]</parent-name>
+            <remote-alias>Amount Refunded</remote-alias>
+            <ordinal>3</ordinal>
+            <local-type>real</local-type>
+            <aggregation>Sum</aggregation>
+            <precision>15</precision>
+            <contains-null>true</contains-null>
+            <attributes>
+              <attribute datatype='string' name='DebugRemoteType'>&quot;R8&quot;</attribute>
+            </attributes>
+            <object-id>[PayPal Payments.csv_36AB8EDCF49A4677AE9A12997BE38A0C]</object-id>
+          </metadata-record>
+          <metadata-record class='column'>
+            <remote-name>Currency</remote-name>
+            <remote-type>130</remote-type>
+            <local-name>[Currency]</local-name>
+            <parent-name>[PayPal Payments.csv]</parent-name>
+            <remote-alias>Currency</remote-alias>
+            <ordinal>4</ordinal>
+            <local-type>string</local-type>
+            <aggregation>Count</aggregation>
+            <contains-null>true</contains-null>
+            <collation flag='1' name='LEN_RUS_S2' />
+            <attributes>
+              <attribute datatype='string' name='DebugRemoteType'>&quot;WSTR&quot;</attribute>
+            </attributes>
+            <object-id>[PayPal Payments.csv_36AB8EDCF49A4677AE9A12997BE38A0C]</object-id>
+          </metadata-record>
+          <metadata-record class='column'>
+            <remote-name>Captured</remote-name>
+            <remote-type>11</remote-type>
+            <local-name>[Captured]</local-name>
+            <parent-name>[PayPal Payments.csv]</parent-name>
+            <remote-alias>Captured</remote-alias>
+            <ordinal>5</ordinal>
+            <local-type>boolean</local-type>
+            <aggregation>Count</aggregation>
+            <contains-null>true</contains-null>
+            <attributes>
+              <attribute datatype='string' name='DebugRemoteType'>&quot;WINBOOL&quot;</attribute>
+            </attributes>
+            <object-id>[PayPal Payments.csv_36AB8EDCF49A4677AE9A12997BE38A0C]</object-id>
+          </metadata-record>
+          <metadata-record class='column'>
+            <remote-name>Converted Amount</remote-name>
+            <remote-type>5</remote-type>
+            <local-name>[Converted Amount]</local-name>
+            <parent-name>[PayPal Payments.csv]</parent-name>
+            <remote-alias>Converted Amount</remote-alias>
+            <ordinal>6</ordinal>
+            <local-type>real</local-type>
+            <aggregation>Sum</aggregation>
+            <precision>15</precision>
+            <contains-null>true</contains-null>
+            <attributes>
+              <attribute datatype='string' name='DebugRemoteType'>&quot;R8&quot;</attribute>
+            </attributes>
+            <object-id>[PayPal Payments.csv_36AB8EDCF49A4677AE9A12997BE38A0C]</object-id>
+          </metadata-record>
+          <metadata-record class='column'>
+            <remote-name>Converted Amount Refunded</remote-name>
+            <remote-type>5</remote-type>
+            <local-name>[Converted Amount Refunded]</local-name>
+            <parent-name>[PayPal Payments.csv]</parent-name>
+            <remote-alias>Converted Amount Refunded</remote-alias>
+            <ordinal>7</ordinal>
+            <local-type>real</local-type>
+            <aggregation>Sum</aggregation>
+            <precision>15</precision>
+            <contains-null>true</contains-null>
+            <attributes>
+              <attribute datatype='string' name='DebugRemoteType'>&quot;R8&quot;</attribute>
+            </attributes>
+            <object-id>[PayPal Payments.csv_36AB8EDCF49A4677AE9A12997BE38A0C]</object-id>
+          </metadata-record>
+          <metadata-record class='column'>
+            <remote-name>Converted Currency</remote-name>
+            <remote-type>130</remote-type>
+            <local-name>[Converted Currency]</local-name>
+            <parent-name>[PayPal Payments.csv]</parent-name>
+            <remote-alias>Converted Currency</remote-alias>
+            <ordinal>8</ordinal>
+            <local-type>string</local-type>
+            <aggregation>Count</aggregation>
+            <contains-null>true</contains-null>
+            <collation flag='1' name='LEN_RUS_S2' />
+            <attributes>
+              <attribute datatype='string' name='DebugRemoteType'>&quot;WSTR&quot;</attribute>
+            </attributes>
+            <object-id>[PayPal Payments.csv_36AB8EDCF49A4677AE9A12997BE38A0C]</object-id>
+          </metadata-record>
+          <metadata-record class='column'>
+            <remote-name>Description</remote-name>
+            <remote-type>130</remote-type>
+            <local-name>[Description]</local-name>
+            <parent-name>[PayPal Payments.csv]</parent-name>
+            <remote-alias>Description</remote-alias>
+            <ordinal>9</ordinal>
+            <local-type>string</local-type>
+            <aggregation>Count</aggregation>
+            <contains-null>true</contains-null>
+            <collation flag='1' name='LEN_RUS_S2' />
+            <attributes>
+              <attribute datatype='string' name='DebugRemoteType'>&quot;WSTR&quot;</attribute>
+            </attributes>
+            <object-id>[PayPal Payments.csv_36AB8EDCF49A4677AE9A12997BE38A0C]</object-id>
+          </metadata-record>
+          <metadata-record class='column'>
+            <remote-name>Fee</remote-name>
+            <remote-type>5</remote-type>
+            <local-name>[Fee]</local-name>
+            <parent-name>[PayPal Payments.csv]</parent-name>
+            <remote-alias>Fee</remote-alias>
+            <ordinal>10</ordinal>
+            <local-type>real</local-type>
+            <aggregation>Sum</aggregation>
+            <precision>15</precision>
+            <contains-null>true</contains-null>
+            <attributes>
+              <attribute datatype='string' name='DebugRemoteType'>&quot;R8&quot;</attribute>
+            </attributes>
+            <object-id>[PayPal Payments.csv_36AB8EDCF49A4677AE9A12997BE38A0C]</object-id>
+          </metadata-record>
+          <metadata-record class='column'>
+            <remote-name>Status</remote-name>
+            <remote-type>130</remote-type>
+            <local-name>[Status]</local-name>
+            <parent-name>[PayPal Payments.csv]</parent-name>
+            <remote-alias>Status</remote-alias>
+            <ordinal>11</ordinal>
+            <local-type>string</local-type>
+            <aggregation>Count</aggregation>
+            <contains-null>true</contains-null>
+            <collation flag='1' name='LEN_RUS_S2' />
+            <attributes>
+              <attribute datatype='string' name='DebugRemoteType'>&quot;WSTR&quot;</attribute>
+            </attributes>
+            <object-id>[PayPal Payments.csv_36AB8EDCF49A4677AE9A12997BE38A0C]</object-id>
+          </metadata-record>
+          <metadata-record class='column'>
+            <remote-name>Seller Message</remote-name>
+            <remote-type>130</remote-type>
+            <local-name>[Seller Message]</local-name>
+            <parent-name>[PayPal Payments.csv]</parent-name>
+            <remote-alias>Seller Message</remote-alias>
+            <ordinal>12</ordinal>
+            <local-type>string</local-type>
+            <aggregation>Count</aggregation>
+            <contains-null>true</contains-null>
+            <collation flag='1' name='LEN_RUS_S2' />
+            <attributes>
+              <attribute datatype='string' name='DebugRemoteType'>&quot;WSTR&quot;</attribute>
+            </attributes>
+            <object-id>[PayPal Payments.csv_36AB8EDCF49A4677AE9A12997BE38A0C]</object-id>
+          </metadata-record>
+          <metadata-record class='column'>
+            <remote-name>Card ID</remote-name>
+            <remote-type>130</remote-type>
+            <local-name>[Card ID]</local-name>
+            <parent-name>[PayPal Payments.csv]</parent-name>
+            <remote-alias>Card ID</remote-alias>
+            <ordinal>13</ordinal>
+            <local-type>string</local-type>
+            <aggregation>Count</aggregation>
+            <contains-null>true</contains-null>
+            <collation flag='1' name='LEN_RUS_S2' />
+            <attributes>
+              <attribute datatype='string' name='DebugRemoteType'>&quot;WSTR&quot;</attribute>
+            </attributes>
+            <object-id>[PayPal Payments.csv_36AB8EDCF49A4677AE9A12997BE38A0C]</object-id>
+          </metadata-record>
+          <metadata-record class='column'>
+            <remote-name>Customer ID</remote-name>
+            <remote-type>130</remote-type>
+            <local-name>[Customer ID]</local-name>
+            <parent-name>[PayPal Payments.csv]</parent-name>
+            <remote-alias>Customer ID</remote-alias>
+            <ordinal>14</ordinal>
+            <local-type>string</local-type>
+            <aggregation>Count</aggregation>
+            <contains-null>true</contains-null>
+            <collation flag='1' name='LEN_RUS_S2' />
+            <attributes>
+              <attribute datatype='string' name='DebugRemoteType'>&quot;WSTR&quot;</attribute>
+            </attributes>
+            <object-id>[PayPal Payments.csv_36AB8EDCF49A4677AE9A12997BE38A0C]</object-id>
+          </metadata-record>
+          <metadata-record class='column'>
+            <remote-name>Invoice ID</remote-name>
+            <remote-type>130</remote-type>
+            <local-name>[Invoice ID]</local-name>
+            <parent-name>[PayPal Payments.csv]</parent-name>
+            <remote-alias>Invoice ID</remote-alias>
+            <ordinal>15</ordinal>
+            <local-type>string</local-type>
+            <aggregation>Count</aggregation>
+            <contains-null>true</contains-null>
+            <collation flag='1' name='LEN_RUS_S2' />
+            <attributes>
+              <attribute datatype='string' name='DebugRemoteType'>&quot;WSTR&quot;</attribute>
+            </attributes>
+            <object-id>[PayPal Payments.csv_36AB8EDCF49A4677AE9A12997BE38A0C]</object-id>
+          </metadata-record>
+          <metadata-record class='column'>
+            <remote-name>Transfer</remote-name>
+            <remote-type>130</remote-type>
+            <local-name>[Transfer]</local-name>
+            <parent-name>[PayPal Payments.csv]</parent-name>
+            <remote-alias>Transfer</remote-alias>
+            <ordinal>16</ordinal>
+            <local-type>string</local-type>
+            <aggregation>Count</aggregation>
+            <contains-null>true</contains-null>
+            <collation flag='1' name='LEN_RUS_S2' />
+            <attributes>
+              <attribute datatype='string' name='DebugRemoteType'>&quot;WSTR&quot;</attribute>
+            </attributes>
+            <object-id>[PayPal Payments.csv_36AB8EDCF49A4677AE9A12997BE38A0C]</object-id>
+          </metadata-record>
+          <metadata-record class='column'>
+            <remote-name>price_id (metadata)</remote-name>
+            <remote-type>130</remote-type>
+            <local-name>[price_id (metadata)]</local-name>
+            <parent-name>[PayPal Payments.csv]</parent-name>
+            <remote-alias>price_id (metadata)</remote-alias>
+            <ordinal>17</ordinal>
+            <local-type>string</local-type>
+            <aggregation>Count</aggregation>
+            <contains-null>true</contains-null>
+            <collation flag='1' name='LEN_RUS_S2' />
+            <attributes>
+              <attribute datatype='string' name='DebugRemoteType'>&quot;WSTR&quot;</attribute>
+            </attributes>
+            <object-id>[PayPal Payments.csv_36AB8EDCF49A4677AE9A12997BE38A0C]</object-id>
+          </metadata-record>
+          <metadata-record class='column'>
+            <remote-name>product_id (metadata)</remote-name>
+            <remote-type>130</remote-type>
+            <local-name>[product_id (metadata)]</local-name>
+            <parent-name>[PayPal Payments.csv]</parent-name>
+            <remote-alias>product_id (metadata)</remote-alias>
+            <ordinal>18</ordinal>
+            <local-type>string</local-type>
+            <aggregation>Count</aggregation>
+            <contains-null>true</contains-null>
+            <collation flag='1' name='LEN_RUS_S2' />
+            <attributes>
+              <attribute datatype='string' name='DebugRemoteType'>&quot;WSTR&quot;</attribute>
+            </attributes>
+            <object-id>[PayPal Payments.csv_36AB8EDCF49A4677AE9A12997BE38A0C]</object-id>
+          </metadata-record>
+          <metadata-record class='column'>
+            <remote-name>Currency</remote-name>
+            <remote-type>130</remote-type>
+            <local-name>[Currency (Sheet1)]</local-name>
+            <parent-name>[Sheet1]</parent-name>
+            <remote-alias>Currency</remote-alias>
+            <ordinal>19</ordinal>
+            <local-type>string</local-type>
+            <aggregation>Count</aggregation>
+            <contains-null>true</contains-null>
+            <collation flag='1' name='LEN_RUS_S2' />
+            <attributes>
+              <attribute datatype='string' name='DebugRemoteType'>&quot;WSTR&quot;</attribute>
+            </attributes>
+            <object-id>[PayPal Payments.csv_36AB8EDCF49A4677AE9A12997BE38A0C]</object-id>
+          </metadata-record>
+          <metadata-record class='column'>
+            <remote-name>USD Conversion</remote-name>
+            <remote-type>5</remote-type>
+            <local-name>[USD Conversion]</local-name>
+            <parent-name>[Sheet1]</parent-name>
+            <remote-alias>USD Conversion</remote-alias>
+            <ordinal>20</ordinal>
+            <local-type>real</local-type>
+            <aggregation>Sum</aggregation>
+            <precision>15</precision>
+            <contains-null>true</contains-null>
+            <attributes>
+              <attribute datatype='string' name='DebugRemoteType'>&quot;R8&quot;</attribute>
+            </attributes>
+            <object-id>[PayPal Payments.csv_36AB8EDCF49A4677AE9A12997BE38A0C]</object-id>
+          </metadata-record>
+          <metadata-record class='column'>
+            <remote-name>id</remote-name>
+            <remote-type>130</remote-type>
+            <local-name>[id (Products.csv)]</local-name>
+            <parent-name>[Products.csv]</parent-name>
+            <remote-alias>id</remote-alias>
+            <ordinal>21</ordinal>
+            <local-type>string</local-type>
+            <aggregation>Count</aggregation>
+            <contains-null>true</contains-null>
+            <collation flag='1' name='LEN_RUS_S2' />
+            <attributes>
+              <attribute datatype='string' name='DebugRemoteType'>&quot;WSTR&quot;</attribute>
+            </attributes>
+            <object-id>[PayPal Payments.csv_36AB8EDCF49A4677AE9A12997BE38A0C]</object-id>
+          </metadata-record>
+          <metadata-record class='column'>
+            <remote-name>Name</remote-name>
+            <remote-type>130</remote-type>
+            <local-name>[Name]</local-name>
+            <parent-name>[Products.csv]</parent-name>
+            <remote-alias>Name</remote-alias>
+            <ordinal>22</ordinal>
+            <local-type>string</local-type>
+            <aggregation>Count</aggregation>
+            <contains-null>true</contains-null>
+            <collation flag='1' name='LEN_RUS_S2' />
+            <attributes>
+              <attribute datatype='string' name='DebugRemoteType'>&quot;WSTR&quot;</attribute>
+            </attributes>
+            <object-id>[PayPal Payments.csv_36AB8EDCF49A4677AE9A12997BE38A0C]</object-id>
+          </metadata-record>
+          <metadata-record class='column'>
+            <remote-name>Date (UTC)</remote-name>
+            <remote-type>7</remote-type>
+            <local-name>[Date (UTC)]</local-name>
+            <parent-name>[Products.csv]</parent-name>
+            <remote-alias>Date (UTC)</remote-alias>
+            <ordinal>23</ordinal>
+            <local-type>datetime</local-type>
+            <aggregation>Year</aggregation>
+            <contains-null>true</contains-null>
+            <attributes>
+              <attribute datatype='string' name='DebugRemoteType'>&quot;DATE&quot;</attribute>
+            </attributes>
+            <object-id>[PayPal Payments.csv_36AB8EDCF49A4677AE9A12997BE38A0C]</object-id>
+          </metadata-record>
+          <metadata-record class='column'>
+            <remote-name>Tax Code</remote-name>
+            <remote-type>130</remote-type>
+            <local-name>[Tax Code]</local-name>
+            <parent-name>[Products.csv]</parent-name>
+            <remote-alias>Tax Code</remote-alias>
+            <ordinal>24</ordinal>
+            <local-type>string</local-type>
+            <aggregation>Count</aggregation>
+            <contains-null>true</contains-null>
+            <collation flag='1' name='LEN_RUS_S2' />
+            <attributes>
+              <attribute datatype='string' name='DebugRemoteType'>&quot;WSTR&quot;</attribute>
+            </attributes>
+            <object-id>[PayPal Payments.csv_36AB8EDCF49A4677AE9A12997BE38A0C]</object-id>
+          </metadata-record>
+        </metadata-records>
+      </connection>
+      <aliases enabled='yes' />
+      <column caption='USD Converted To' datatype='real' name='[Calculation_1975532127990292480]' role='measure' type='quantitative'>
+        <calculation class='tableau' formula='IF ISNULL([USD Conversion]) THEN [Amount]&#10;ELSE [Amount]*[USD Conversion]&#10;END' />
+      </column>
+      <column caption='Currency (Sheet1)1' datatype='string' name='[Currency (Sheet1)]' role='dimension' type='nominal' />
+      <column caption='PayPal Payments.csv' datatype='table' name='[__tableau_internal_object_id__].[PayPal Payments.csv_36AB8EDCF49A4677AE9A12997BE38A0C]' role='measure' type='quantitative' />
+      <column caption='Id' datatype='string' name='[id]' role='dimension' type='nominal' />
+      <column caption='Price Id (Metadata)' datatype='string' name='[price_id (metadata)]' role='dimension' type='nominal' />
+      <column caption='Product Id (Metadata)' datatype='string' name='[product_id (metadata)]' role='dimension' type='nominal' />
+      <extract _.fcp.VConnDownstreamExtractsWithWarnings.true...user-specific='false' count='-1' enabled='true' object-id='' units='records'>
+        <connection access_mode='readonly' author-locale='en_US' class='hyper' dbname='/var/folders/kz/sl9mx18514v_w9y101m4sxnc0000gn/T/tableau-temp/#TableauTemp_0lhz20j0nwn3jk10atwwz114zz4d.hyper' default-settings='hyper' schema='Extract' sslmode='' tablename='Extract' update-time='04/27/2025 10:57:17 PM' username='tableau_internal_user'>
+          <relation name='Extract' table='[Extract].[Extract]' type='table' />
+          <cols>
+            <map key='[Amount Refunded]' value='[Extract].[Amount Refunded]' />
+            <map key='[Amount]' value='[Extract].[Amount]' />
+            <map key='[Captured]' value='[Extract].[Captured]' />
+            <map key='[Card ID]' value='[Extract].[Card ID]' />
+            <map key='[Converted Amount Refunded]' value='[Extract].[Converted Amount Refunded]' />
+            <map key='[Converted Amount]' value='[Extract].[Converted Amount]' />
+            <map key='[Converted Currency]' value='[Extract].[Converted Currency]' />
+            <map key='[Created date (UTC)]' value='[Extract].[Created date (UTC)]' />
+            <map key='[Currency (Sheet1)]' value='[Extract].[Currency]' />
+            <map key='[Currency]' value='[Extract].[Currency1]' />
+            <map key='[Customer ID]' value='[Extract].[Customer ID]' />
+            <map key='[Date (UTC)]' value='[Extract].[Date (UTC)]' />
+            <map key='[Description]' value='[Extract].[Description]' />
+            <map key='[Fee]' value='[Extract].[Fee]' />
+            <map key='[Invoice ID]' value='[Extract].[Invoice ID]' />
+            <map key='[Name]' value='[Extract].[Name]' />
+            <map key='[Seller Message]' value='[Extract].[Seller Message]' />
+            <map key='[Status]' value='[Extract].[Status]' />
+            <map key='[Tax Code]' value='[Extract].[Tax Code]' />
+            <map key='[Transfer]' value='[Extract].[Transfer]' />
+            <map key='[USD Conversion]' value='[Extract].[USD Conversion]' />
+            <map key='[id (Products.csv)]' value='[Extract].[id]' />
+            <map key='[id]' value='[Extract].[id1]' />
+            <map key='[price_id (metadata)]' value='[Extract].[price_id (metadata)]' />
+            <map key='[product_id (metadata)]' value='[Extract].[product_id (metadata)]' />
+          </cols>
+          <metadata-records>
+            <metadata-record class='column'>
+              <remote-name>id1</remote-name>
+              <remote-type>129</remote-type>
+              <local-name>[id]</local-name>
+              <parent-name>[Extract]</parent-name>
+              <remote-alias>id1</remote-alias>
+              <ordinal>0</ordinal>
+              <family>PayPal Payments.csv</family>
+              <local-type>string</local-type>
+              <aggregation>Count</aggregation>
+              <approx-count>2120</approx-count>
+              <contains-null>true</contains-null>
+              <collation flag='1' name='LEN_RUS_S2' />
+              <object-id>[PayPal Payments.csv_36AB8EDCF49A4677AE9A12997BE38A0C]</object-id>
+            </metadata-record>
+            <metadata-record class='column'>
+              <remote-name>Created date (UTC)</remote-name>
+              <remote-type>135</remote-type>
+              <local-name>[Created date (UTC)]</local-name>
+              <parent-name>[Extract]</parent-name>
+              <remote-alias>Created date (UTC)</remote-alias>
+              <ordinal>1</ordinal>
+              <family>PayPal Payments.csv</family>
+              <local-type>datetime</local-type>
+              <aggregation>Year</aggregation>
+              <approx-count>1723</approx-count>
+              <contains-null>true</contains-null>
+              <object-id>[PayPal Payments.csv_36AB8EDCF49A4677AE9A12997BE38A0C]</object-id>
+            </metadata-record>
+            <metadata-record class='column'>
+              <remote-name>Amount</remote-name>
+              <remote-type>5</remote-type>
+              <local-name>[Amount]</local-name>
+              <parent-name>[Extract]</parent-name>
+              <remote-alias>Amount</remote-alias>
+              <ordinal>2</ordinal>
+              <family>PayPal Payments.csv</family>
+              <local-type>real</local-type>
+              <aggregation>Sum</aggregation>
+              <approx-count>352</approx-count>
+              <contains-null>true</contains-null>
+              <object-id>[PayPal Payments.csv_36AB8EDCF49A4677AE9A12997BE38A0C]</object-id>
+            </metadata-record>
+            <metadata-record class='column'>
+              <remote-name>Amount Refunded</remote-name>
+              <remote-type>5</remote-type>
+              <local-name>[Amount Refunded]</local-name>
+              <parent-name>[Extract]</parent-name>
+              <remote-alias>Amount Refunded</remote-alias>
+              <ordinal>3</ordinal>
+              <family>PayPal Payments.csv</family>
+              <local-type>real</local-type>
+              <aggregation>Sum</aggregation>
+              <approx-count>50</approx-count>
+              <contains-null>true</contains-null>
+              <object-id>[PayPal Payments.csv_36AB8EDCF49A4677AE9A12997BE38A0C]</object-id>
+            </metadata-record>
+            <metadata-record class='column'>
+              <remote-name>Currency1</remote-name>
+              <remote-type>129</remote-type>
+              <local-name>[Currency]</local-name>
+              <parent-name>[Extract]</parent-name>
+              <remote-alias>Currency1</remote-alias>
+              <ordinal>4</ordinal>
+              <family>PayPal Payments.csv</family>
+              <local-type>string</local-type>
+              <aggregation>Count</aggregation>
+              <approx-count>21</approx-count>
+              <contains-null>true</contains-null>
+              <collation flag='1' name='LEN_RUS_S2' />
+              <object-id>[PayPal Payments.csv_36AB8EDCF49A4677AE9A12997BE38A0C]</object-id>
+            </metadata-record>
+            <metadata-record class='column'>
+              <remote-name>Captured</remote-name>
+              <remote-type>11</remote-type>
+              <local-name>[Captured]</local-name>
+              <parent-name>[Extract]</parent-name>
+              <remote-alias>Captured</remote-alias>
+              <ordinal>5</ordinal>
+              <family>PayPal Payments.csv</family>
+              <local-type>boolean</local-type>
+              <aggregation>Count</aggregation>
+              <approx-count>3</approx-count>
+              <contains-null>true</contains-null>
+              <object-id>[PayPal Payments.csv_36AB8EDCF49A4677AE9A12997BE38A0C]</object-id>
+            </metadata-record>
+            <metadata-record class='column'>
+              <remote-name>Converted Amount</remote-name>
+              <remote-type>5</remote-type>
+              <local-name>[Converted Amount]</local-name>
+              <parent-name>[Extract]</parent-name>
+              <remote-alias>Converted Amount</remote-alias>
+              <ordinal>6</ordinal>
+              <family>PayPal Payments.csv</family>
+              <local-type>real</local-type>
+              <aggregation>Sum</aggregation>
+              <approx-count>97</approx-count>
+              <contains-null>true</contains-null>
+              <object-id>[PayPal Payments.csv_36AB8EDCF49A4677AE9A12997BE38A0C]</object-id>
+            </metadata-record>
+            <metadata-record class='column'>
+              <remote-name>Converted Amount Refunded</remote-name>
+              <remote-type>5</remote-type>
+              <local-name>[Converted Amount Refunded]</local-name>
+              <parent-name>[Extract]</parent-name>
+              <remote-alias>Converted Amount Refunded</remote-alias>
+              <ordinal>7</ordinal>
+              <family>PayPal Payments.csv</family>
+              <local-type>real</local-type>
+              <aggregation>Sum</aggregation>
+              <approx-count>36</approx-count>
+              <contains-null>true</contains-null>
+              <object-id>[PayPal Payments.csv_36AB8EDCF49A4677AE9A12997BE38A0C]</object-id>
+            </metadata-record>
+            <metadata-record class='column'>
+              <remote-name>Converted Currency</remote-name>
+              <remote-type>129</remote-type>
+              <local-name>[Converted Currency]</local-name>
+              <parent-name>[Extract]</parent-name>
+              <remote-alias>Converted Currency</remote-alias>
+              <ordinal>8</ordinal>
+              <family>PayPal Payments.csv</family>
+              <local-type>string</local-type>
+              <aggregation>Count</aggregation>
+              <approx-count>9</approx-count>
+              <contains-null>true</contains-null>
+              <collation flag='1' name='LEN_RUS_S2' />
+              <object-id>[PayPal Payments.csv_36AB8EDCF49A4677AE9A12997BE38A0C]</object-id>
+            </metadata-record>
+            <metadata-record class='column'>
+              <remote-name>Description</remote-name>
+              <remote-type>129</remote-type>
+              <local-name>[Description]</local-name>
+              <parent-name>[Extract]</parent-name>
+              <remote-alias>Description</remote-alias>
+              <ordinal>9</ordinal>
+              <family>PayPal Payments.csv</family>
+              <local-type>string</local-type>
+              <aggregation>Count</aggregation>
+              <approx-count>1</approx-count>
+              <contains-null>true</contains-null>
+              <collation flag='1' name='LEN_RUS_S2' />
+              <object-id>[PayPal Payments.csv_36AB8EDCF49A4677AE9A12997BE38A0C]</object-id>
+            </metadata-record>
+            <metadata-record class='column'>
+              <remote-name>Fee</remote-name>
+              <remote-type>5</remote-type>
+              <local-name>[Fee]</local-name>
+              <parent-name>[Extract]</parent-name>
+              <remote-alias>Fee</remote-alias>
+              <ordinal>10</ordinal>
+              <family>PayPal Payments.csv</family>
+              <local-type>real</local-type>
+              <aggregation>Sum</aggregation>
+              <approx-count>62</approx-count>
+              <contains-null>true</contains-null>
+              <object-id>[PayPal Payments.csv_36AB8EDCF49A4677AE9A12997BE38A0C]</object-id>
+            </metadata-record>
+            <metadata-record class='column'>
+              <remote-name>Status</remote-name>
+              <remote-type>129</remote-type>
+              <local-name>[Status]</local-name>
+              <parent-name>[Extract]</parent-name>
+              <remote-alias>Status</remote-alias>
+              <ordinal>11</ordinal>
+              <family>PayPal Payments.csv</family>
+              <local-type>string</local-type>
+              <aggregation>Count</aggregation>
+              <approx-count>4</approx-count>
+              <contains-null>true</contains-null>
+              <collation flag='1' name='LEN_RUS_S2' />
+              <object-id>[PayPal Payments.csv_36AB8EDCF49A4677AE9A12997BE38A0C]</object-id>
+            </metadata-record>
+            <metadata-record class='column'>
+              <remote-name>Seller Message</remote-name>
+              <remote-type>129</remote-type>
+              <local-name>[Seller Message]</local-name>
+              <parent-name>[Extract]</parent-name>
+              <remote-alias>Seller Message</remote-alias>
+              <ordinal>12</ordinal>
+              <family>PayPal Payments.csv</family>
+              <local-type>string</local-type>
+              <aggregation>Count</aggregation>
+              <approx-count>22</approx-count>
+              <contains-null>true</contains-null>
+              <collation flag='1' name='LEN_RUS_S2' />
+              <object-id>[PayPal Payments.csv_36AB8EDCF49A4677AE9A12997BE38A0C]</object-id>
+            </metadata-record>
+            <metadata-record class='column'>
+              <remote-name>Card ID</remote-name>
+              <remote-type>129</remote-type>
+              <local-name>[Card ID]</local-name>
+              <parent-name>[Extract]</parent-name>
+              <remote-alias>Card ID</remote-alias>
+              <ordinal>13</ordinal>
+              <family>PayPal Payments.csv</family>
+              <local-type>string</local-type>
+              <aggregation>Count</aggregation>
+              <approx-count>1775</approx-count>
+              <contains-null>true</contains-null>
+              <collation flag='1' name='LEN_RUS_S2' />
+              <object-id>[PayPal Payments.csv_36AB8EDCF49A4677AE9A12997BE38A0C]</object-id>
+            </metadata-record>
+            <metadata-record class='column'>
+              <remote-name>Customer ID</remote-name>
+              <remote-type>129</remote-type>
+              <local-name>[Customer ID]</local-name>
+              <parent-name>[Extract]</parent-name>
+              <remote-alias>Customer ID</remote-alias>
+              <ordinal>14</ordinal>
+              <family>PayPal Payments.csv</family>
+              <local-type>string</local-type>
+              <aggregation>Count</aggregation>
+              <approx-count>1235</approx-count>
+              <contains-null>true</contains-null>
+              <collation flag='1' name='LEN_RUS_S2' />
+              <object-id>[PayPal Payments.csv_36AB8EDCF49A4677AE9A12997BE38A0C]</object-id>
+            </metadata-record>
+            <metadata-record class='column'>
+              <remote-name>Invoice ID</remote-name>
+              <remote-type>129</remote-type>
+              <local-name>[Invoice ID]</local-name>
+              <parent-name>[Extract]</parent-name>
+              <remote-alias>Invoice ID</remote-alias>
+              <ordinal>15</ordinal>
+              <family>PayPal Payments.csv</family>
+              <local-type>string</local-type>
+              <aggregation>Count</aggregation>
+              <approx-count>1983</approx-count>
+              <contains-null>true</contains-null>
+              <collation flag='1' name='LEN_RUS_S2' />
+              <object-id>[PayPal Payments.csv_36AB8EDCF49A4677AE9A12997BE38A0C]</object-id>
+            </metadata-record>
+            <metadata-record class='column'>
+              <remote-name>Transfer</remote-name>
+              <remote-type>129</remote-type>
+              <local-name>[Transfer]</local-name>
+              <parent-name>[Extract]</parent-name>
+              <remote-alias>Transfer</remote-alias>
+              <ordinal>16</ordinal>
+              <family>PayPal Payments.csv</family>
+              <local-type>string</local-type>
+              <aggregation>Count</aggregation>
+              <approx-count>63</approx-count>
+              <contains-null>true</contains-null>
+              <collation flag='1' name='LEN_RUS_S2' />
+              <object-id>[PayPal Payments.csv_36AB8EDCF49A4677AE9A12997BE38A0C]</object-id>
+            </metadata-record>
+            <metadata-record class='column'>
+              <remote-name>price_id (metadata)</remote-name>
+              <remote-type>129</remote-type>
+              <local-name>[price_id (metadata)]</local-name>
+              <parent-name>[Extract]</parent-name>
+              <remote-alias>price_id (metadata)</remote-alias>
+              <ordinal>17</ordinal>
+              <family>PayPal Payments.csv</family>
+              <local-type>string</local-type>
+              <aggregation>Count</aggregation>
+              <approx-count>19</approx-count>
+              <contains-null>true</contains-null>
+              <collation flag='1' name='LEN_RUS_S2' />
+              <object-id>[PayPal Payments.csv_36AB8EDCF49A4677AE9A12997BE38A0C]</object-id>
+            </metadata-record>
+            <metadata-record class='column'>
+              <remote-name>product_id (metadata)</remote-name>
+              <remote-type>129</remote-type>
+              <local-name>[product_id (metadata)]</local-name>
+              <parent-name>[Extract]</parent-name>
+              <remote-alias>product_id (metadata)</remote-alias>
+              <ordinal>18</ordinal>
+              <family>PayPal Payments.csv</family>
+              <local-type>string</local-type>
+              <aggregation>Count</aggregation>
+              <approx-count>11</approx-count>
+              <contains-null>true</contains-null>
+              <collation flag='1' name='LEN_RUS_S2' />
+              <object-id>[PayPal Payments.csv_36AB8EDCF49A4677AE9A12997BE38A0C]</object-id>
+            </metadata-record>
+            <metadata-record class='column'>
+              <remote-name>Currency</remote-name>
+              <remote-type>129</remote-type>
+              <local-name>[Currency (Sheet1)]</local-name>
+              <parent-name>[Extract]</parent-name>
+              <remote-alias>Currency</remote-alias>
+              <ordinal>19</ordinal>
+              <family>Sheet1</family>
+              <local-type>string</local-type>
+              <aggregation>Count</aggregation>
+              <approx-count>21</approx-count>
+              <contains-null>true</contains-null>
+              <collation flag='1' name='LEN_RUS_S2' />
+              <object-id>[PayPal Payments.csv_36AB8EDCF49A4677AE9A12997BE38A0C]</object-id>
+            </metadata-record>
+            <metadata-record class='column'>
+              <remote-name>USD Conversion</remote-name>
+              <remote-type>5</remote-type>
+              <local-name>[USD Conversion]</local-name>
+              <parent-name>[Extract]</parent-name>
+              <remote-alias>USD Conversion</remote-alias>
+              <ordinal>20</ordinal>
+              <family>Sheet1</family>
+              <local-type>real</local-type>
+              <aggregation>Sum</aggregation>
+              <approx-count>21</approx-count>
+              <contains-null>true</contains-null>
+              <object-id>[PayPal Payments.csv_36AB8EDCF49A4677AE9A12997BE38A0C]</object-id>
+            </metadata-record>
+            <metadata-record class='column'>
+              <remote-name>id</remote-name>
+              <remote-type>129</remote-type>
+              <local-name>[id (Products.csv)]</local-name>
+              <parent-name>[Extract]</parent-name>
+              <remote-alias>id</remote-alias>
+              <ordinal>21</ordinal>
+              <family>Products.csv</family>
+              <local-type>string</local-type>
+              <aggregation>Count</aggregation>
+              <approx-count>11</approx-count>
+              <contains-null>true</contains-null>
+              <collation flag='1' name='LEN_RUS_S2' />
+              <object-id>[PayPal Payments.csv_36AB8EDCF49A4677AE9A12997BE38A0C]</object-id>
+            </metadata-record>
+            <metadata-record class='column'>
+              <remote-name>Name</remote-name>
+              <remote-type>129</remote-type>
+              <local-name>[Name]</local-name>
+              <parent-name>[Extract]</parent-name>
+              <remote-alias>Name</remote-alias>
+              <ordinal>22</ordinal>
+              <family>Products.csv</family>
+              <local-type>string</local-type>
+              <aggregation>Count</aggregation>
+              <approx-count>11</approx-count>
+              <contains-null>true</contains-null>
+              <collation flag='1' name='LEN_RUS_S2' />
+              <object-id>[PayPal Payments.csv_36AB8EDCF49A4677AE9A12997BE38A0C]</object-id>
+            </metadata-record>
+            <metadata-record class='column'>
+              <remote-name>Date (UTC)</remote-name>
+              <remote-type>135</remote-type>
+              <local-name>[Date (UTC)]</local-name>
+              <parent-name>[Extract]</parent-name>
+              <remote-alias>Date (UTC)</remote-alias>
+              <ordinal>23</ordinal>
+              <family>Products.csv</family>
+              <local-type>datetime</local-type>
+              <aggregation>Year</aggregation>
+              <approx-count>8</approx-count>
+              <contains-null>true</contains-null>
+              <object-id>[PayPal Payments.csv_36AB8EDCF49A4677AE9A12997BE38A0C]</object-id>
+            </metadata-record>
+            <metadata-record class='column'>
+              <remote-name>Tax Code</remote-name>
+              <remote-type>129</remote-type>
+              <local-name>[Tax Code]</local-name>
+              <parent-name>[Extract]</parent-name>
+              <remote-alias>Tax Code</remote-alias>
+              <ordinal>24</ordinal>
+              <family>Products.csv</family>
+              <local-type>string</local-type>
+              <aggregation>Count</aggregation>
+              <approx-count>1</approx-count>
+              <contains-null>true</contains-null>
+              <collation flag='1' name='LEN_RUS_S2' />
+              <object-id>[PayPal Payments.csv_36AB8EDCF49A4677AE9A12997BE38A0C]</object-id>
+            </metadata-record>
+          </metadata-records>
+        </connection>
+      </extract>
+      <layout dim-ordering='alphabetic' measure-ordering='alphabetic' show-structure='true' />
+      <semantic-values>
+        <semantic-value key='[Country].[Name]' value='&quot;United States&quot;' />
+      </semantic-values>
+      <field-sort-info field-sort-order-type='custom-order'>
+        <field-sort-custom-order field='id' />
+        <field-sort-custom-order field='Created date (UTC)' />
+        <field-sort-custom-order field='Amount' />
+        <field-sort-custom-order field='Calculation_1975532127990292480' />
+        <field-sort-custom-order field='Amount Refunded' />
+        <field-sort-custom-order field='Currency' />
+        <field-sort-custom-order field='Captured' />
+        <field-sort-custom-order field='Converted Amount' />
+        <field-sort-custom-order field='Converted Amount Refunded' />
+        <field-sort-custom-order field='Converted Currency' />
+        <field-sort-custom-order field='Description' />
+        <field-sort-custom-order field='Fee' />
+        <field-sort-custom-order field='Status' />
+        <field-sort-custom-order field='Seller Message' />
+        <field-sort-custom-order field='Card ID' />
+        <field-sort-custom-order field='Customer ID' />
+        <field-sort-custom-order field='Invoice ID' />
+        <field-sort-custom-order field='Transfer' />
+        <field-sort-custom-order field='price_id (metadata)' />
+        <field-sort-custom-order field='product_id (metadata)' />
+      </field-sort-info>
+      <object-graph>
+        <objects>
+          <object caption='PayPal Payments.csv' id='PayPal Payments.csv_36AB8EDCF49A4677AE9A12997BE38A0C'>
+            <properties context=''>
+              <relation join='inner' type='join'>
+                <clause type='join'>
+                  <expression op='='>
+                    <expression op='[PayPal Payments.csv].[product_id (metadata)]' />
+                    <expression op='[Products.csv].[id]' />
+                  </expression>
+                </clause>
+                <relation join='left' type='join'>
+                  <clause type='join'>
+                    <expression op='='>
+                      <expression op='[PayPal Payments.csv].[Currency]' />
+                      <expression op='[Sheet1].[Currency]' />
+                    </expression>
+                  </clause>
+                  <relation connection='textscan.17i6zz40gyx9901grzmt01b4x60u' name='PayPal Payments.csv' table='[PayPal Payments#csv$]' type='table'>
+                    <columns character-set='UTF-8' gridOrigin='A1:S2675:no:A1:S2675:1' header='yes' locale='en_US' separator=','>
+                      <column datatype='string' name='id' ordinal='0' />
+                      <column datatype='datetime' name='Created date (UTC)' ordinal='1' />
+                      <column datatype='real' name='Amount' ordinal='2' />
+                      <column datatype='real' name='Amount Refunded' ordinal='3' />
+                      <column datatype='string' name='Currency' ordinal='4' />
+                      <column datatype='boolean' name='Captured' ordinal='5' />
+                      <column datatype='real' name='Converted Amount' ordinal='6' />
+                      <column datatype='real' name='Converted Amount Refunded' ordinal='7' />
+                      <column datatype='string' name='Converted Currency' ordinal='8' />
+                      <column datatype='string' name='Description' ordinal='9' />
+                      <column datatype='real' name='Fee' ordinal='10' />
+                      <column datatype='string' name='Status' ordinal='11' />
+                      <column datatype='string' name='Seller Message' ordinal='12' />
+                      <column datatype='string' name='Card ID' ordinal='13' />
+                      <column datatype='string' name='Customer ID' ordinal='14' />
+                      <column datatype='string' name='Invoice ID' ordinal='15' />
+                      <column datatype='string' name='Transfer' ordinal='16' />
+                      <column datatype='string' name='price_id (metadata)' ordinal='17' />
+                      <column datatype='string' name='product_id (metadata)' ordinal='18' />
+                    </columns>
+                  </relation>
+                  <relation connection='excel-direct.0w9hg1v0zf20oz1eu115z1v94k9r' name='Sheet1' table='[Sheet1$]' type='table'>
+                    <columns gridOrigin='A1:B20:no:A1:B20:1' lost='0' outcome='1' processed='19'>
+                      <column datatype='string' name='Currency' ordinal='0' />
+                      <column datatype='real' name='USD Conversion' ordinal='1' />
+                    </columns>
+                  </relation>
+                </relation>
+                <relation connection='textscan.17i6zz40gyx9901grzmt01b4x60u' name='Products.csv' table='[Products#csv$]' type='table'>
+                  <columns gridOrigin='A1:D12:no:A1:D12:1'>
+                    <column datatype='string' name='id' ordinal='0' />
+                    <column datatype='string' name='Name' ordinal='1' />
+                    <column datatype='datetime' name='Date (UTC)' ordinal='2' />
+                    <column datatype='string' name='Tax Code' ordinal='3' />
+                  </columns>
+                </relation>
+              </relation>
+            </properties>
+            <properties context='extract'>
+              <relation name='Extract' table='[Extract].[Extract]' type='table' />
+            </properties>
+          </object>
+        </objects>
+      </object-graph>
+    </datasource>
+  </datasources>
+  <worksheets>
+    <worksheet name='Sheet 1'>
+      <table>
+        <view>
+          <datasources>
+            <datasource caption='PayPal Payments.csv (Multiple Connections)' name='federated.0odawbj1b0cvuw13ozzqv11ix1yq' />
+          </datasources>
+          <datasource-dependencies datasource='federated.0odawbj1b0cvuw13ozzqv11ix1yq'>
+            <column datatype='string' name='[Name]' role='dimension' type='nominal' />
+            <column datatype='real' name='[USD Conversion]' role='measure' type='quantitative' />
+            <column-instance column='[Name]' derivation='None' name='[none:Name:nk]' pivot='key' type='nominal' />
+            <column-instance column='[USD Conversion]' derivation='Sum' name='[sum:USD Conversion:qk]' pivot='key' type='quantitative' />
+          </datasource-dependencies>
+          <aggregation value='true' />
+        </view>
+        <style>
+          <style-rule element='axis'>
+            <format attr='height' field='[federated.0odawbj1b0cvuw13ozzqv11ix1yq].[sum:USD Conversion:qk]' value='55' />
+          </style-rule>
+          <style-rule element='cell'>
+            <format attr='height' field='[federated.0odawbj1b0cvuw13ozzqv11ix1yq].[none:Name:nk]' value='38' />
+          </style-rule>
+        </style>
+        <panes>
+          <pane selection-relaxation-option='selection-relaxation-allow'>
+            <view>
+              <breakdown value='auto' />
+            </view>
+            <mark class='Automatic' />
+            <style>
+              <style-rule element='pane'>
+                <format attr='minheight' value='-1' />
+                <format attr='maxheight' value='-1' />
+              </style-rule>
+            </style>
+          </pane>
+        </panes>
+        <rows>[federated.0odawbj1b0cvuw13ozzqv11ix1yq].[none:Name:nk]</rows>
+        <cols>[federated.0odawbj1b0cvuw13ozzqv11ix1yq].[sum:USD Conversion:qk]</cols>
+      </table>
+      <simple-id uuid='{4225846F-E822-41E6-94D0-85C5584D1666}' />
+    </worksheet>
+  </worksheets>
+  <windows source-height='30'>
+    <window class='worksheet' maximized='true' name='Sheet 1'>
+      <cards>
+        <edge name='left'>
+          <strip size='160'>
+            <card type='pages' />
+            <card type='filters' />
+            <card type='marks' />
+          </strip>
+        </edge>
+        <edge name='top'>
+          <strip size='2147483647'>
+            <card type='columns' />
+          </strip>
+          <strip size='2147483647'>
+            <card type='rows' />
+          </strip>
+          <strip size='31'>
+            <card type='title' />
+          </strip>
+        </edge>
+      </cards>
+      <viewpoint>
+        <highlight>
+          <color-one-way>
+            <field>[federated.0odawbj1b0cvuw13ozzqv11ix1yq].[none:Currency (Sheet1):nk]</field>
+            <field>[federated.0odawbj1b0cvuw13ozzqv11ix1yq].[none:Name:nk]</field>
+          </color-one-way>
+        </highlight>
+      </viewpoint>
+      <simple-id uuid='{53188BA3-EEE3-4071-A81C-F91E5B119CF9}' />
+    </window>
+  </windows>
+  <thumbnails>
+    <thumbnail height='384' name='Sheet 1' width='384'>
+      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
+    </thumbnail>
+  </thumbnails>
+</workbook>
